@@ -1,0 +1,36 @@
+/*Write an Applet program to display font name and font size by passing parameters to an Applet.*/
+import java.applet.*;
+import java.awt.*;
+
+public class FontApplet extends Applet {
+    
+    String fontName;
+    int fontSize;
+    
+    public void init() {
+        // Get font name and font size parameters from the HTML page
+        fontName = getParameter("fontname");
+        fontSize = Integer.parseInt(getParameter("fontsize"));
+    }
+    
+    public void paint(Graphics g) {
+        // Set the font using the font name and font size parameters
+        Font font = new Font(fontName, Font.PLAIN, fontSize);
+        g.setFont(font);
+        
+        // Draw the font name and font size on the Applet
+        g.drawString("Font Name: " + fontName, 20, 20);
+        g.drawString("Font Size: " + fontSize, 20, 40);
+    }
+}
+<html>
+<head>
+<title>Font Applet Example</title>
+</head>
+<body>
+<applet code="FontApplet.class" width="200" height="100">
+<param name="fontname" value="Arial">
+<param name="fontsize" value="16">
+</applet>
+</body>
+</html>
