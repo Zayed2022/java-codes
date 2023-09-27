@@ -28,6 +28,18 @@ class Knaptest{
 			}
 			System.out.println();
 		}
+        System.out.println("The optimal solution matrix is:"+v[n][m]);
+        System.out.println(" ");
+        for(i=0;i<=n;i++)
+        x[i]=0;
+        i=n;j=m;
+        while(i!=0&&j!=0){
+            if(v[i][j]!=v[i-1][j]){
+                x[i]=1;
+                j=j-w[i];
+            }
+            i=i-1;
+        }
 		System.out.println("objects selected are :");
 		for(i=1;i<=n;i++)
 			if(x[i]==1)
@@ -54,14 +66,16 @@ class Knaptest{
 		}
 	}
 	}
-public class Knap {
+public class Knap{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
           Knaptest kt =new Knaptest();
           kt.input();
           kt.opt_sol();
+          kt.output();
          
 	}
 
 }
+
